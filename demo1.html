@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#rangeColor{width: 300px;height: 50px;background: red;}
+			body{height: 5000px;}
+		</style>
+		<script type="text/javascript">
+			function init(){
+				var range = document.getElementById("range");
+				var rangeTXT = document.getElementById("rangeTXT");
+				var rangeColor = document.getElementById("rangeColor");
+				var color = document.getElementById("color");
+				var progress = document.getElementById("progress");
+				console.log(color.value);
+				range.oninput = function(){
+					rangeTXT.value = range.value;
+					rangeColor.style.opacity = range.value/100;
+				}
+				setInterval(function(){
+					progress.value += 1;
+					if(progress.value>=100){
+						progress.value = 0;
+					}
+				},50)
+			}
+		
+		
+		
+			window.addEventListener("load",init,false);
+		</script>
+	</head>
+	<body>
+			邮箱地址：<input type="email" name="email" multiple required form="myform"/><br/><br/>
+			
+		<form action="" method="get" id="myform">
+			搜索        ：<input type="search" placeholder="请输入搜索内容"/><br/><br/>
+			URL   ：<input type="url" value="http://"/><br/><br/>
+			TEL   ：<input type="tel" autofocus pattern="13[0-9]{9}"/><br/><br/>
+			number   ：<input type="number" min="50" max="200" step="5"/><br/><br/>
+			range   ：0<input type="range" min="0" max="100" step="5" value="100" id="range"/>100
+						<input type="text" id="rangeTXT"/><br/><br/>
+						<div id="rangeColor"></div><br/><br/>
+			日期   ：<input type="date" /><br/><br/>
+			周   ：<input type="week" /><br/><br/>
+			月份   ：<input type="month" /><br/><br/>
+			日期与时间   ：<input type="datetime" /><br/><br/>
+			本地日期与时间   ：<input type="datetime-local" /><br/><br/>
+			color   ：<input type="color" id="color"/><br/><br/>
+			上传   ：<input type="file" multiple="multiple"/><br/><br/>
+			<br/><br/>+++++++++++++++++++++++++++++++++++++++++++++++++++++++<br/><br/>
+			<input type="text" name="address" id="address" list="mylist"/>
+			<datalist id="mylist">
+				<option value="010" label="北京"/>
+				<option value="011" label="上海"/>
+				<option value="012" label="重庆"/>
+				<option value="022" label="天津"/>
+				<option value="122" label="吉林"/>
+			</datalist>
+			<br/><br/>
+			<progress max="100" value="20" id="progress"></progress><br/>
+			<meter min="0" max="350" low="60" high="120" optimum="80" value="90"></meter>
+			
+			<br/><br/>
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>

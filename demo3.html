@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post" name="Login">
+			<input type="text" required/><span></span><br/>
+			<input type="text"/><span></span><br/>
+			<input type="text" /><span></span><br/>
+			<input type="text" /><span></span><br/>
+			<input type="text"/><span></span><br/>
+			<input type="text" /><span></span><br/>
+			
+			<input type="text" id="username" name="username" required pattern="130"/><div></div>
+			<input type="submit" value=""/>
+		</form>
+	</body>
+		<script type="text/javascript">
+		
+			function error1(e){
+				var tar = e.target;   //得到触发事件的元素
+//				console.log(tar);
+				tar.style.background = "#ffdddd";
+				tar.nextSibling.innerHTML = "请正确填写此字段"
+				
+				if(document.getElementById("username").value==""){
+					document.getElementById("username").nextSibling.innerHTML = "不能为空"
+				}
+			}
+		
+			document.Login.addEventListener("invalid",error1,true);
+//			window.addEventListener("load",init,false);
+		</script>
+</html>

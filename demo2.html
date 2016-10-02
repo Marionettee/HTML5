@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function init(){
+				var username = document.getElementById("username");
+				username.onblur = function(){
+					
+					if(username.value==''){
+						username.setCustomValidity("您好，这里必须输入");
+					}else if(username.value.length<6){
+						username.setCustomValidity("不能小于6");
+					}else if(username.value.length>12){
+						username.setCustomValidity("不能大于12");
+					}else if(username.checkValidity()){
+						document.getElementsByTagName("div")[0].innerHTML = "√";
+					}else{
+						username.setCustomValidity("");
+					}
+				}
+			}
+		
+		
+		
+			window.addEventListener("load",init,false);
+		</script>
+	</head>
+	<body>
+		<header>
+			<form method="get">
+				<input type="text" id="username" required/><div></div>
+				
+				
+				<br/><br/>
+				<input type="submit" value="提交"/>
+			</form>
+		</header>
+		<nav>
+			<ul>
+				<li>机器猫</li>
+				<li>葫芦娃</li>
+			</ul>
+		</nav>
+		<section>
+			主体
+		</section>
+		<aside>
+			侧边
+		</aside>
+		<footer>
+			脚部内容
+		</footer>
+	</body>
+</html>
